@@ -22,7 +22,9 @@ def main():
     statesData = json.load(states)
     for state in statesData:
         stations.append(
-            {"name": state["name"], "stations": get_stations(state["shortCode"])})
+            {"name": state["name"], 
+            "shortCode": state["shortCode"],
+            "stations": get_stations(state["shortCode"])})
 
     with open('json_data.json', 'w') as outfile:
         json.dump(stations, outfile)
